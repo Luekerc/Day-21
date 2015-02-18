@@ -1,0 +1,27 @@
+body {
+	background-color: rgb(60,180,250);
+}
+
+#all-buttons {
+	height:3em;
+}
+
+#play-button {
+	height: 2em;
+	width: 5em;
+	font-weight: bold;
+}
+
+#settings-button {
+	height: 2em;
+	width: 6em;
+	text-align: center;
+	font-weight: bold;
+}
+
+#leaderboard-button {
+	height: 2em;
+	width: 8em;
+	font-weight: bold;
+
+}

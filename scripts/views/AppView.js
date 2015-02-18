@@ -1,50 +1,60 @@
 var AppView = Backbone.View.extend({
-	el: '#menu-screen',
+	
+	el: '#app',
 	initialize: function() {
-		
-		this.projects = new ProjectsCollection();
-		console.log(ProjectsCollection);
+
+		this.loadingView = new LoadingView({
+			
+		});
+
+		this.playView = new PlayView({
+			
+		});
 
 		this.leaderboardView = new LeaderboardView({
-			projects: this.projects
+			
 		});
-		this.playView = new PlayView({
-			projects: this.projects
-		});
-		this.settingView = new SettingsView({
-			projects: this.projects
+
+
+		this.settingsView = new SettingsView({
+			
 		});
 
 		var self = this;
 
 		var Router = Backbone.Router.extend({
 			routes: {
-				'home': 		'home',
-				'leaderboard': 	'leaderboard',
+				'loading':      'loading', 
 				'play': 		'play',
-				'settings': 	'settings'
+				'leaderboard': 	'leaderboard',
+				'settings': 	'settings',
+				'': 			'loading'
 			},
 
-			home: function() {
-				console.log('home');
+			loading: function(){
+				console.log('loading')
 				self.hideAllPages();
-				self.homeView.$el.show();
+				self.loadingView.$el.show();
 			},
 
-			resume: function() {
-				self.hideAllPages();
-				self.leaderboardView.$el.show();
-			},
-
-			projects: function() {
+			play: function(){
+				console.log('play')
 				self.hideAllPages();
 				self.playView.$el.show();
 			},
 
-			admin: function() {
+			leaderboard: function(){
+				console.log('leaderboard')
+				self.hideAllPages();
+				self.leaderboardView.$el.show();
+			},
+
+			settings: function(){
+				console.log('settings')
 				self.hideAllPages();
 				self.settingsView.$el.show();
-			}
+			},
+
 		});
 
 		var appRouter = new Router();
@@ -53,7 +63,7 @@ var AppView = Backbone.View.extend({
 	},
 
 	hideAllPages: function() {
-		$('.menu-screen').hide();
+		$('.page-view').hide();
 	}
 });
 

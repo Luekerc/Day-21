@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Game</title>
-</head>
+	<head>
+		<title>Game Views</title>
+		<link rel="stylesheet" href="style/style.css">
+	</head>
 <body>
-	<div id="loading-page">Loading.  Please wait....</div>
 
-	<div id="menu-screen" class="menu-screen">MENU SCREEN
-	<div id="all-buttons">
-		<button type="button" id="play-button">Play</button>
-		<button type="button" id="leaderboard-button">Leaderboard</button>
-		<button type="button" id="settings-button">Settings</button>
-	</div>
-	</div>
-<script type="text/html" id="project-template">
-			<div class="project">
-				<h3>
-					<a href="<%= url %>"><%= name %></a>
-				</h3>
-				<p><%= description %></p>
-			</div>
-</script>
+		<div id="all-buttons">
+			<button type="button" id="play-button">Play</button>
+			<button type="button" id="leaderboard-button">Leaderboard</button>
+			<button type="button" id="settings-button">Settings</button>
+		</div>
+	<main id="app">
+		<div class="page-view" id="loading-view">
+			<p>Loading.  Please wait....</p>
+		</div>
 
+		<div  class="page-view" id="play-view">
+			<p>This is the "play" view.</p>
+		</div>
+
+		<div class="page-view" id="leaderboard-view">
+			<p>Here is the "leaderboard" view.</p>
+		</div>
+
+		<div class="page-view" id="settings-view">
+			<p>Contemplate your "settings" view.</p>
+		</div>
+	</main>
+<!-- Must run 'bower init' in the Terminal to create the dependencies and JSON -->
+<!-- These are my library files -->
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
 	<script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
+<!-- These are my model files -->
 	<script type="text/javascript" src="scripts/models/ProjectModel.js"></script>
+<!-- This is my collection file -->
 	<script type="text/javascript" src="scripts/collections/ProjectsCollection.js"></script>
-	<script type="text/javascript" src="scripts/views/IndividualProjectView.js"></script>
-	<script type="text/javascript" src="scripts/views/AppView.js"></script>
+<!-- These are my view files -->
+	<script type="text/javascript" src="scripts/views/LoadingView.js"></script>
 	<script type="text/javascript" src="scripts/views/PlayView.js"></script>
 	<script type="text/javascript" src="scripts/views/LeaderboardView.js"></script>
 	<script type="text/javascript" src="scripts/views/SettingsView.js"></script>
+	<script type="text/javascript" src="scripts/views/AppView.js"></script>
+<!-- This is my main file -->
 	<script type="text/javascript" src="scripts/main.js"></script>
 </body>
 </html>
